@@ -54,6 +54,11 @@ $( document ).ready(function() {
         $('.page-link').on("click", function(event){
             event.preventDefault();
             pagination($(this).attr('data-page'));
+
+            currentPage = $(this).attr('data-page');
+
+            $(".page-link").removeClass('selected');
+            $(".page-link[data-page="+currentPage+"]:not(.nav-icon)").addClass('selected');
         });
 
     });
