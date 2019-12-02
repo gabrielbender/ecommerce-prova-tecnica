@@ -7,7 +7,7 @@ $( document ).ready(function() {
         method:"GET"
     }).done(function(resposta){
         var dados = JSON.parse(resposta);
-        var pagesQtd = Math.ceil(dados.products.length / 20)+1; 
+        var pagesQtd = Math.ceil(dados.products.length / 20); 
         var productList = $('.product-list');
         dados.products.forEach(function(item,index){
             var produto = 
@@ -37,7 +37,7 @@ $( document ).ready(function() {
 
         pagination(currentPage);
 
-        for(let i = 1; i < pagesQtd; i++){
+        for(let i = 1; i <= pagesQtd; i++){
             $('.last-page').before(`
                 <li class="page-item"><a class="page-link" href="#" data-page="${i}">${i}</a></li>
             `);
